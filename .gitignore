@@ -1,2 +1,5 @@
 # Project exclude paths
 /out/
+.idea/
+GitLab1.iml
+/GitLab1.iml
