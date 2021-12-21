@@ -1,7 +1,8 @@
 import java.util.Hashtable;
 
 public class Palindrome {
-
+    private static int licznikToString = 0;
+    public static int licznikHashCode = 0;
     /**
      * Tutaj przechowuję napis
      */
@@ -26,6 +27,10 @@ public class Palindrome {
         return rawPalindrame;
     }
 
+    public static void ileRazyBylToString(){
+        System.out.println("Łącznie obikety klasy Palndrome użyły toString " + licznikToString + " razy");
+    }
+
     public String makeRawPalindrame(){
         StringBuilder sb = new StringBuilder();
         //for Jakiego typu jest elemet w tablicy/kolecji : tablica/kolekcja
@@ -41,6 +46,7 @@ public class Palindrome {
 
     @Override
     public String toString(){
+        licznikToString ++;
         return palindrame;
     }
 
@@ -61,6 +67,7 @@ public class Palindrome {
 
     @Override
     public int hashCode() {
+        licznikHashCode++;
         return palindrame.hashCode();
     }
 
@@ -124,10 +131,12 @@ public class Palindrome {
         ps.put(p2, "autor nieznany");
         ps.put(new Palindrome("muzo, raz daj jad za rozum"), "Julian Tuwim");
         ps.put(p3, "Tadeusz Morawski");
+        System.out.println("HashCode był użyty: " + licznikHashCode);
         System.out.println("Autorem palindromu " + p3 + " jest " + ps.get(p3));
         String word = "rrrrr abccba kobyłamamałybok";
         String longestPalindrome = findLongestPalindram(word);
         System.out.println("longestPalindrome: " + longestPalindrome);
+        System.out.println("HashCode był użyty: " + licznikHashCode);
     }
 
 }
